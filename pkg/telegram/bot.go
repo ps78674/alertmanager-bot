@@ -437,6 +437,8 @@ func (b *Bot) handleAlerts(message *telebot.Message) error {
 
 	receiver, err := receiverFromConfig(*status.Config.Original, message.Chat.ID)
 	if err != nil || receiver == "" {
+		// TODO: need to handle err
+		// level.Warn(b.logger).Log...
 		_, err := b.telegram.Send(message.Chat, fmt.Sprintf(responseAlertsNotConfigured, message.Chat.ID), &telebot.SendOptions{ParseMode: telebot.ModeMarkdown})
 		return err
 	}

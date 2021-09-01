@@ -10,6 +10,7 @@ import (
 
 	"github.com/go-openapi/strfmt"
 	"github.com/prometheus/alertmanager/api/v2/models"
+	"github.com/prometheus/alertmanager/pkg/labels"
 	"github.com/prometheus/alertmanager/types"
 	"github.com/prometheus/common/model"
 	"github.com/stretchr/testify/require"
@@ -187,7 +188,7 @@ func TestClient(t *testing.T) {
 			StartsAt:  time.Date(2021, 01, 11, 16, 10, 11, 0, time.UTC),
 			EndsAt:    time.Date(2022, 01, 11, 16, 10, 02, 0, time.UTC),
 			UpdatedAt: time.Date(2021, 01, 11, 16, 10, 11, 0, time.UTC),
-			Matchers:  types.Matchers{},
+			Matchers:  labels.Matchers{},
 			Status: types.SilenceStatus{
 				State: types.SilenceStateActive,
 			},
